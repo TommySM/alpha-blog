@@ -7,7 +7,7 @@ gem 'sass-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
-gem 'bootstrap', '~> 5.2.0'
+gem 'bootstrap', '~> 5.1.3'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -75,3 +75,7 @@ end
 group :production do
   gem 'pg'
 end
+
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.1"
