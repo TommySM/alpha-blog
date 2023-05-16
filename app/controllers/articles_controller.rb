@@ -21,7 +21,8 @@ class ArticlesController < ApplicationController
             flash[:notice] = "Article was created succesfully."
             redirect_to @article
         else
-            render :new# *A temporal "solution/patch"* , status: :unprocessable_entity
+            flash[:error] = "No se pudo crear el artículo. Por favor, verifica los campos."
+            render :new #*A temporal "solution/patch"* , status: :unprocessable_entity
         end
     end
 
