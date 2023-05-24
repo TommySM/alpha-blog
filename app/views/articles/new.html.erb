@@ -1,3 +1,6 @@
 <h1 class="text-center mt-4">Create Article</h1>
-<%= render 'form' %>
+<%= render 'form', f: form_with(model: @article, class: "shadow p-3 mb-3 bg-info rounded", local: true) %>
+
+
+
 

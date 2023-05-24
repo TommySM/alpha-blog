@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+    include ActionView::RecordIdentifier
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def show
@@ -10,6 +11,7 @@ class ArticlesController < ApplicationController
 
     def new
         @article = Article.new
+        render 'new'
     end
 
     def edit
@@ -17,15 +19,18 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(article_params)
+      
         if @article.save
-            flash[:notice] = "Article was created succesfully."
-            redirect_to @article
+          flash[:notice] = "Article created successfully."
+          redirect_to @article
         else
-            flash[:error] = "No se pudo crear el artículo. Por favor, verifica los campos."
-            render :new #*A temporal "solution/patch"* , status: :unprocessable_entity
+          respond_to do |format|
+            format.html { render :new }
+            format.turbo_stream { render turbo_stream: turbo_stream.append("articles", partial: "shared/errors", locals: { errors: @article.errors.full_messages }) }
+          end
         end
-    end
-
+      end
+    
     def update
         if @article.update(article_params)
             flash[:notice] = "Article was updated successfully"

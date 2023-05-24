@@ -1,0 +1,2 @@
+const frame = document.querySelector("turbo-frame#<%= turbo_frame %>");
+frame.innerHTML = `<%= j render 'shared/errors', errors: errors, turbo_frame: turbo_frame %>`;
