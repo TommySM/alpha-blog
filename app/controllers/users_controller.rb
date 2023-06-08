@@ -5,28 +5,41 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
-            flash[:notice] = "Welcome to the Alpha Blog #{@user.username}, you have succesfully signed up"
-            redirect_to articles_path
-        else
-            render 'new'
-        end       
+        respond_to do |format|
+            if @user.save
+              format.html do
+                flash[:notice] = "Welcome to the Alpha Blog, you have successfully signed up"
+                redirect_to articles_path
+              end
+              format.turbo_stream { redirect_to articles_path, notice: 'Welcome to the Alpha Blog, you have successfully signed up' }
+            else
+              format.html { render :new }
+              format.turbo_stream { render turbo_stream: turbo_stream.replace("errors", partial: "shared/errors", locals: { errors: @user.errors.full_messages, errors_record_name: "User" }) }
+            end
+          end            
     end
 
 
     def edit
         @user = User.find(params[:id])            
     end
-
     def update
         @user = User.find(params[:id])
-        if @user.update(user_params)
-            flash[:notice] = "Your accoun info was succesfully updated"
-            redirect_to articles_path
-        else
-            render 'edit'
+        
+        respond_to do |format|
+          if @user.update(user_params)
+            format.html do
+              flash[:notice] = "Your account info was successfully updated."
+              redirect_to articles_path
+            end
+            format.turbo_stream { redirect_to articles_path, notice: 'Your account info was successfully updated.' }
+          else
+            format.html { render :edit }
+            format.turbo_stream { render turbo_stream: turbo_stream.replace("errors", partial: "shared/errors", locals: { errors: @user.errors.full_messages, errors_record_name: "User" }) }
+          end
         end
-    end
+      end
+      
 
     private
     def user_params
