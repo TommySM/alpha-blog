@@ -29,6 +29,9 @@ gem "jbuilder"
 #for error messages
 gem 'rails-ujs'
 
+gem 'byebug'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
