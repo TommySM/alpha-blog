@@ -5,7 +5,7 @@
         <%= render 'shared/errors', errors: @user.errors.full_messages, errors_record_name: "User", locals: { errors_record_name: "User" } if @user.errors.any? %>
       <% end %>
       <%= turbo_frame_tag "user" do %>
-        <%= form_with(model: @user, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+        <%= form_with(model: @user, class: "shadow p-3 mb-3 bg-info rounded", local: true, multipart: true) do |f| %>
           <div class="form-group row">
             <%= f.label :username, class: "col-2 col-form-label text-light" %>
             <div class="col-10">
@@ -15,13 +15,19 @@
           <div class="form-group row">
             <%= f.label :email, class: "col-2 col-form-label text-light" %>
             <div class="col-10">
-              <%= f.email_field :email, class: "form-control shadow rounded", placeholder: "Enter your email adress" %>
+              <%= f.email_field :email, class: "form-control shadow rounded", placeholder: "Enter your email address" %>
             </div>
           </div>
           <div class="form-group row">
             <%= f.label :password, class: "col-2 col-form-label text-light" %>
             <div class="col-10">
               <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Choose your password" %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :profile_images, class: "col-2 col-form-label text-light" %>
+            <div class="col-10">
+              <%= f.file_field :profile_images, class: "form-control-file", accept: "image/*" %>
             </div>
           </div>
           <div class="form-group row justify-content-center">

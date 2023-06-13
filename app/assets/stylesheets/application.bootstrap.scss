@@ -1,5 +1,5 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+@import 'bootstrap';
+@import 'bootstrap-icons';
 
 .navbar {
     background-color: black !important;
@@ -20,6 +20,7 @@
 
 #home-container {
     margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 #jumbi {
@@ -33,4 +34,22 @@
 body {
     background-color: lightgray;
     height: 100%;
+}
+
+.last-article {
+    margin-bottom: 20px;
+    /* Ajusta el valor según sea necesario */
+}
+.profile-image {
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega un sombreado */
+    width: 250px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 250px;
+  }
+  
+.profile-image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* Ajusta el valor según sea necesario */
 }
