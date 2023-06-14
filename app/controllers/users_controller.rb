@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @articles = @user.articles
   end
+
+  def index
+    @users = User.all
+  end
   
   def new
        @user = User.new 
@@ -35,9 +39,9 @@ class UsersController < ApplicationController
           if @user.update(user_params)
             format.html do
               flash[:notice] = "Your account info was successfully updated."
-              redirect_to articles_path
+              redirect_to @user
             end
-            format.turbo_stream { redirect_to articles_path, notice: 'Your account info was successfully updated.' }
+            format.turbo_stream { redirect_to @user, notice: 'Your account info was successfully updated.' }
           else
             format.html { render :edit }
             format.turbo_stream { render turbo_stream: turbo_stream.replace("errors", partial: "shared/errors", locals: { errors: @user.errors.full_messages, errors_record_name: "User" }) }

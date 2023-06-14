@@ -40,13 +40,21 @@ body {
     margin-bottom: 20px;
     /* Ajusta el valor según sea necesario */
 }
+
 .profile-image {
     border-radius: 50%; /* Hace que la imagen sea redonda */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega un sombreado */
     width: 250px; /* Ajusta el tamaño de la imagen según sea necesario */
     height: 250px;
   }
-  
+
+  .article-image {
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega un sombreado */
+    width: 100px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 100px;
+  }
+
 .profile-image-container {
     display: flex;
     justify-content: center;
