@@ -40,6 +40,8 @@ Rails.application.configure do
   config.active_storage.service_urls_expire_in = 2.weeks
   config.active_storage.resolve_model_to_route = :rails_storage_proxy
   config.active_storage.variant_processor = :vips
+  config.assets.debug = false 
+
 
 
   # Don't care if the mailer can't send.

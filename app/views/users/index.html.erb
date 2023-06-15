@@ -1,5 +1,9 @@
 <h1 class="text-center mt-4">The Pit Bloggers</h1>
 
+<h1 class="text-center mt-4">Listing all articles</h1>
+<%= will_paginate @users %>
+
+
 <div class="container">
   <% @users.each do |user| %>
     <div class="row justify-content-md-center" >
