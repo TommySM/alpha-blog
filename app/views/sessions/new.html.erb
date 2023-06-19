@@ -1,0 +1,13 @@
+<h1 class="text-center mt-4">Log in</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <turbo-frame id="login-form">
+        <%= render 'sessions/form' %>
+      </turbo-frame>
+      <div class="mb-3">
+        <%= link_to '[ Cancel and return to articles listing ]', articles_path, class: "text-info" %>
+      </div>
+    </div>
+  </div>
+</div>

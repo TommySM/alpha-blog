@@ -38,6 +38,19 @@ body {
     height: 100%;
 }
 
+.logout-button {
+    background-color: black; /* Ajusta el color de fondo según tus necesidades */
+    color: #fff; /* Ajusta el color de las letras según tus necesidades */
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .logout-button:hover {
+    background-color: black; /* Ajusta el color de fondo al pasar el ratón sobre el botón según tus necesidades */
+  }
+  
 .last-article {
     margin-bottom: 20px;
     /* Ajusta el valor según sea necesario */
