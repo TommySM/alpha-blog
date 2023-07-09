@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  include WillPaginate::ViewHelpers  
+  include WillPaginate::ViewHelpers
   include ActionView::RecordIdentifier
     before_action :set_article, only: [:show, :edit, :update, :destroy]
     before_action :require_user, except: [:show, :index] 
